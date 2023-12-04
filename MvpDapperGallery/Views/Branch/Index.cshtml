@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MvpDapperGallery.Models.BranchModel>
+
+@{
+    ViewBag.Title = null;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "EY")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.branchName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.branchIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.branchCarstock)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.branchName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.branchIncome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.branchCarstock)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EY", new {  id=item.branchNo  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.branchNo  })
+        </td>
+    </tr>
+}
+
+</table>

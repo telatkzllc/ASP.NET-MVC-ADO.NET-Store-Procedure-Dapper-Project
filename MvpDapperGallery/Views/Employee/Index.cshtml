@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MvpDapperGallery.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = null;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "EY")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeePhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.branchNo)  @*ismini getirmeyi ogren dayı*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeePhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeSalary)
+        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.branchNo)
+        </th>
+        <td>
+            @Html.ActionLink("Edit", "EY", new { id = item.employeeNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.employeeNo })
+        </td>
+    </tr>
+}
+
+</table>

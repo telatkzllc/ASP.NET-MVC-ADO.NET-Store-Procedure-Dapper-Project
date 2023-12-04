@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MvpDapperGallery.Models.CustomerModel>
+
+@{
+    ViewBag.Title = "Index"; /*buraya null yazarsam ne olur*/
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "EY")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customerDeposit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerDeposit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeNo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EY", new {  id=item.customerNo  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.customerNo  })
+        </td>
+    </tr>
+}
+
+</table>
